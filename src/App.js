@@ -22,6 +22,7 @@ const App = () => {
     setSecondFieldValues([]);
     setSecondRandomNumbers(makeRandomArray(1, 4));
     setGameIsFinished(false);
+    setIsVictory(false);
   };
 
   const finishGame = () => {
