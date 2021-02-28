@@ -30,7 +30,7 @@ const App = () => {
     const secondFieldResult = getNumberOfMathes(secondRandomNumbers, secondFieldValues);
     console.log(`совпадений в первом поле: ${firstFieldResult}, совпадений в первом поле: ${secondFieldResult}`)
     setGameIsFinished(true);
-    if (firstFieldResult === 4 || (firstFieldResult >=3 && secondFieldResult === 1)) {
+    if (firstFieldResult >= 4 || (firstFieldResult >=3 && secondFieldResult === 1)) {
       setIsVictory(true);
     }
   };

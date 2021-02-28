@@ -7,8 +7,8 @@ const makeRandomArray = (countOfNumbers, maxValue) => {
      const randomNumber = getRandomNumber(result, maxValue);
      result.push(randomNumber);
   };
-
   return result;
+
 };
 
 export default makeRandomArray;
