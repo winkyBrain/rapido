@@ -1,16 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import GameField from "./components/GameField/GameField";
 import getNumberOfMathes from "./functions/getNumberOfMacthes";
 import makeRandomArray from "./functions/makeRandomArray";
 
 const App = () => {
-  const [firstRandomNumbers, setFirstRandomNumbers] = useState(
-    makeRandomArray(8, 20)
-  );
-  const [secondRandomNumbers, setSecondRandomNumbers] = useState(
-    makeRandomArray(1, 4)
-  );
+
+  useEffect(() => {
+    setFirstRandomNumbers(makeRandomArray(8, 20));
+    setSecondRandomNumbers(makeRandomArray(1, 4));
+  }, [])
+
+  const [firstRandomNumbers, setFirstRandomNumbers] = useState(null);
+  const [secondRandomNumbers, setSecondRandomNumbers] = useState(null);
   const [firstFieldValues, setFirstFieldValues] = useState([]);
   const [secondFieldValues, setSecondFieldValues] = useState([]);
   const [gameIsFinished, setGameIsFinished] = useState(false);
@@ -26,11 +28,22 @@ const App = () => {
   };
 
   const finishGame = () => {
-    const firstFieldResult = getNumberOfMathes(firstRandomNumbers, firstFieldValues);
-    const secondFieldResult = getNumberOfMathes(secondRandomNumbers, secondFieldValues);
-    console.log(`совпадений в первом поле: ${firstFieldResult}, совпадений в первом поле: ${secondFieldResult}`)
+    const firstFieldResult = getNumberOfMathes(
+      firstRandomNumbers,
+      firstFieldValues
+    );
+    const secondFieldResult = getNumberOfMathes(
+      secondRandomNumbers,
+      secondFieldValues
+    );
+    console.log(
+      `совпадений в первом поле: ${firstFieldResult}, совпадений в первом поле: ${secondFieldResult}`
+    );
     setGameIsFinished(true);
-    if (firstFieldResult >= 4 || (firstFieldResult >=3 && secondFieldResult === 1)) {
+    if (
+      firstFieldResult >= 4 ||
+      (firstFieldResult >= 3 && secondFieldResult === 1)
+    ) {
       setIsVictory(true);
     }
   };
