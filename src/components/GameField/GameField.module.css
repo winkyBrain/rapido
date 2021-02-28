@@ -1,0 +1,19 @@
+.gameField {
+  width: 600px;
+  height: 400px;
+  border: 2px solid #d7d7d7;
+  border-radius: 30px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.gamePart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.resultPart {
+  width: 300px;
+}
