@@ -1,3 +1,4 @@
+import makeRandomArray from "../../functions/makeRandomArray";
 import FirstField from "../FirstsField/FirstField";
 import ResultField from "../ResultField/ResultField";
 import SecondField from "../SecondField/SecondField";
@@ -26,6 +27,10 @@ const GameField = ({
           setSecondFieldValues={setSecondFieldValues}
           gameIsFinished={gameIsFinished}
         />
+        <button disabled={gameIsFinished} onClick={() => {
+          setFirstFieldValues(makeRandomArray(8, 20));
+          setSecondFieldValues(makeRandomArray(1, 4));
+        }}>Выбрать случайным образом</button>
       </div>
       <div className={styles.resultPart}>
         <ResultField
