@@ -11,8 +11,8 @@ const App = () => {
     setSecondRandomNumbers(makeRandomArray(1, 4));
   }, [])
 
-  const [firstRandomNumbers, setFirstRandomNumbers] = useState(null);
-  const [secondRandomNumbers, setSecondRandomNumbers] = useState(null);
+  const [firstRandomNumbers, setFirstRandomNumbers] = useState([]);
+  const [secondRandomNumbers, setSecondRandomNumbers] = useState([]);
   const [firstFieldValues, setFirstFieldValues] = useState([]);
   const [secondFieldValues, setSecondFieldValues] = useState([]);
   const [gameIsFinished, setGameIsFinished] = useState(false);
@@ -35,9 +35,6 @@ const App = () => {
     const secondFieldResult = getNumberOfMathes(
       secondRandomNumbers,
       secondFieldValues
-    );
-    console.log(
-      `совпадений в первом поле: ${firstFieldResult}, совпадений в первом поле: ${secondFieldResult}`
     );
     setGameIsFinished(true);
     if (

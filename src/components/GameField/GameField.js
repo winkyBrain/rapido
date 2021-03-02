@@ -5,8 +5,10 @@ import SecondField from "../SecondField/SecondField";
 import styles from "./GameField.module.css";
 
 const GameField = ({
+  firstRandomNumbers,
   firstFieldValues,
   setFirstFieldValues,
+  secondRandomNumbers,
   secondFieldValues,
   setSecondFieldValues,
   beginNewGame,
@@ -18,11 +20,13 @@ const GameField = ({
     <div className={styles.gameField}>
       <div className={styles.gamePart}>
         <FirstField
+          firstRandomNumbers={firstRandomNumbers}
           firstFieldValues={firstFieldValues}
           setFirstFieldValues={setFirstFieldValues}
           gameIsFinished={gameIsFinished}
         />
         <SecondField
+          secondRandomNumbers={secondRandomNumbers}
           secondFieldValues={secondFieldValues}
           setSecondFieldValues={setSecondFieldValues}
           gameIsFinished={gameIsFinished}

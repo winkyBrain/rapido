@@ -20,3 +20,19 @@
 .selected:hover {
   background-color: #47b582;
 }
+
+.wrong {
+  background-color: #fa2036;
+}
+
+.wrong:hover {
+  background-color: #db1446;
+}
+
+.winning {
+  background-color: silver;
+}
+
+.winning:hover {
+  background-color: #918a8b;
+}

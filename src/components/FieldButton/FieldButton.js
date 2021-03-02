@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import styles from './FieldButton.module.css';
 import cn from 'classnames';
 
-const FieldButton = ({number, values, setValues, maxLength, gameIsFinished}) => {
+const FieldButton = ({number, values, setValues, maxLength, gameIsFinished, randomNumbers}) => {
 
   const [selected, setSelected] = useState(values.includes(number));
 
@@ -22,12 +22,18 @@ const FieldButton = ({number, values, setValues, maxLength, gameIsFinished}) => 
     }
   };
 
-  const classes = cn(styles.button, {
+  const gameInProgressStyles = cn(styles.button, {
     [styles.selected]: selected
-  })
+  });
+
+  const gameIsFinishedStyles = cn(styles.button, {
+    [styles.selected]: values.includes(number) && randomNumbers.includes(number),
+    [styles.wrong]: values.includes(number) && !randomNumbers.includes(number),
+    [styles.winning]: !values.includes(number) && randomNumbers.includes(number),
+  });
 
   return (
-    <div className={classes} onClick={click}>
+    <div className={gameIsFinished ? gameIsFinishedStyles : gameInProgressStyles} onClick={click}>
       {number}
     </div>
   )
