@@ -1,3 +1,5 @@
+import styles from './ResultField.module.css'
+
 const ResultField = ({
   firstFieldValues,
   secondFieldValues,
@@ -8,7 +10,7 @@ const ResultField = ({
 }) => {
 
   return (
-    <>
+    <div className={styles.resultField}>
       {gameIsFinished ? (
         <button onClick={beginNewGame}>Начать новую игру</button>
       ) : (
@@ -19,10 +21,10 @@ const ResultField = ({
           Узнать результат
         </button>
       )}
-      <div>
+      <div className={styles.result}>
         {gameIsFinished ? isVictory ? 'Вы победили' : 'Вы проиграли': null}
       </div>
-    </>
+    </div>
   );
 };
 
