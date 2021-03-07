@@ -1,4 +1,5 @@
-.secondField {
+.field {
   display: flex;
   width: 210px;
-}
+  flex-wrap: wrap;
+};

@@ -1,7 +1,6 @@
 import makeRandomArray from "../../functions/makeRandomArray";
-import FirstField from "../FirstsField/FirstField";
+import NumbersField from "../NumbersField/NumbersField";
 import ResultField from "../ResultField/ResultField";
-import SecondField from "../SecondField/SecondField";
 import styles from "./GameField.module.css";
 
 const GameField = ({
@@ -19,17 +18,21 @@ const GameField = ({
   return (
     <div className={styles.gameField}>
       <div className={styles.gamePart}>
-        <FirstField
-          firstRandomNumbers={firstRandomNumbers}
-          firstFieldValues={firstFieldValues}
-          setFirstFieldValues={setFirstFieldValues}
+        <NumbersField 
+          values={firstFieldValues}
+          setValues={setFirstFieldValues}
           gameIsFinished={gameIsFinished}
+          randomNumbers={firstRandomNumbers}
+          length={20}
+          numbersToSelectCount={8}
         />
-        <SecondField
-          secondRandomNumbers={secondRandomNumbers}
-          secondFieldValues={secondFieldValues}
-          setSecondFieldValues={setSecondFieldValues}
+        <NumbersField
+          randomNumbers={secondRandomNumbers}
+          values={secondFieldValues}
+          setValues={setSecondFieldValues}
           gameIsFinished={gameIsFinished}
+          length={4}
+          numbersToSelectCount={1}
         />
         <button disabled={gameIsFinished} onClick={() => {
           setFirstFieldValues(makeRandomArray(8, 20));
