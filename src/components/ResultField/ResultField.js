@@ -1,4 +1,4 @@
-import styles from './ResultField.module.css'
+import styles from './ResultField.module.scss'
 
 const ResultField = ({
   firstFieldValues,
